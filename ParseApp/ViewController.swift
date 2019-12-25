@@ -18,7 +18,8 @@ class ViewController: UIViewController {
         // saveDataToParse()
         // retrieveRecords()
         // findRecord()
-        updateRecord()
+        // updateRecord()
+        deleteRecord()
     }
     
     func findRecord() {
@@ -41,6 +42,18 @@ class ViewController: UIViewController {
             if let object = object {
                 object.setValue("Brownnnnn", forKey: "lastName")
                 object.saveInBackground()
+            } else {
+                print( error?.localizedDescription )
+            }
+        }
+    }
+    
+    func deleteRecord() {
+        let query = PFQuery(className: "People")
+        query.whereKey("firstName", equalTo: "James")
+        query.getFirstObjectInBackground { (object, error) in
+            if let object = object {
+                object.deleteInBackground()
             } else {
                 print( error?.localizedDescription )
             }
