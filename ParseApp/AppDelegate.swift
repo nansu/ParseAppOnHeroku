@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         let config = ParseClientConfiguration {
             $0.applicationId = "myAppId758"
-            $0.server = "https://nsu-parse-app.herokuapp.com/parse"
+            $0.server = "http://nsu-parse-app.herokuapp.com/parse"
         }
         
         Parse.initialize(with: config)

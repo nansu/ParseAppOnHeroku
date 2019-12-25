@@ -16,8 +16,8 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         let person = PFObject(className: "People")
-        person.setValue("Nan", forKey: "firstName")
-        person.setValue("Su", forKey: "lastName")
+        person.setValue("James", forKey: "firstName")
+        person.setValue("Brown", forKey: "lastName")
         person.saveInBackground()
     }
 
