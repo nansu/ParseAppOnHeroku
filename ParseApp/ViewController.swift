@@ -15,9 +15,15 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        saveDataToParse()
+    }
+    
+    func saveDataToParse() {
         let person = PFObject(className: "People")
-        person.setValue("James", forKey: "firstName")
-        person.setValue("Brown", forKey: "lastName")
+        // person.setValue("James", forKey: "firstName")
+        // person.setValue("Brown", forKey: "lastName")
+        person["firstName"] = "Peter"
+        person["lastName"] = "White"
         person.saveInBackground()
     }
 
