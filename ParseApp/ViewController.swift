@@ -15,7 +15,21 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        saveDataToParse()
+        // saveDataToParse()
+        retrieveRecords()
+    }
+    
+    
+    func retrieveRecords() {
+        let query = PFQuery(className: "People")
+        query.findObjectsInBackground{
+            (objects, error) in
+            if let objects = objects {
+                print(objects)
+            } else {
+                print(error?.localizedDescription)
+            }
+        }
     }
     
     func saveDataToParse() {
