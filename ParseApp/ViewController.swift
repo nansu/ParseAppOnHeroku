@@ -16,9 +16,21 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         // saveDataToParse()
-        retrieveRecords()
+        // retrieveRecords()
+        findRecord()
     }
     
+    func findRecord() {
+        let query = PFQuery(className: "People")
+        query.whereKey("firstName", equalTo: "Nan")
+        query.getFirstObjectInBackground { (object, error) in
+            if let object = object {
+                print(object)
+            } else {
+                print( error?.localizedDescription )
+            }
+        }
+    }
     
     func retrieveRecords() {
         let query = PFQuery(className: "People")
